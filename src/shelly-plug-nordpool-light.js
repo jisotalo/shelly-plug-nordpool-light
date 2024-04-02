@@ -45,7 +45,7 @@ let C_DEF = {
     [null, 255, 255, 255, 0, 0],  //row #1 - base (no rule found)
     [null, 255, 0, 0, 50, 1],     //row #2 - error
     [-999, 0, 255, 0, 10, 0],     //row #3 - color 1 (green)
-    [5, 255,255, 0, 25, 0],       //row #4 - color 2 (yellow)
+    [5, 255, 255, 0, 25, 0],       //row #4 - color 2 (yellow)
     [10, 255, 120, 0, 15, 0],     //row #5 - color 3 (orange)
     [15, 255, 64, 0, 25, 0],      //row #6 - color 4 (orange/red)
     [20, 255, 0, 0, 10, 0],       //row #7 - color 5 (red)
@@ -223,7 +223,7 @@ function loop() {
       setPlugConfig();
       firstRunDone = true;
       loopRunning = false;
-    
+
     } else if (logicRunNeeded()) {
       _.s.st = 1; //1 = "getting price"
       logic();
@@ -254,7 +254,7 @@ function blinkLoop() {
   let hour = new Date().getHours();
   let isNight = hour >= _.c.ns || hour < _.c.ne;
   _.s.fa = (isNight && _.c.nf) || !isNight || activeTest != null;
-  
+
   if (_.s.f && _.s.fa) {
     setPlugConfig(blinkState);
   }
@@ -308,7 +308,7 @@ function setPlugConfig(overrideBrightness, cb) {
   try {
     let now = new Date();
     let cfg = activeTest == null ? _.c.c[_.s.c] : activeTest;
-    
+
     //Creating RGB object from config
     let rgb = {
       rgb: [
@@ -343,13 +343,13 @@ function setPlugConfig(overrideBrightness, cb) {
         }
       }
     };
-    
+
     //Set on brightness
     prm.config.leds.colors["switch:0"].on.brightness = Math.min(100, Math.max(0, cfg[4] + _.c.ob));
-    
+
     //blink in use?
     _.s.f = cfg[5];
-      
+
     Shelly.call("PLUGS_UI.SetConfig", prm, function (res, err, msg, cb) {
       if (err === 0) {
         if (cb) {
