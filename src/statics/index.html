@@ -1,0 +1,167 @@
+<!--
+/** 
+ * shelly-plug-nordpool-light
+ * 
+ * (c) Jussi isotalo - http://jisotalo.fi
+ * https://github.com/jisotalo/shelly-plug-nordpool-light
+ * 
+ * License: GNU Affero General Public License v3.0 
+ */
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Shelly Plus Plug</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <!-- Color picker -->
+  <div class="tc" id="pck">
+    Select color
+
+    <div id="pck-grd">
+    </div>
+
+    <div id="pck-box"></div>
+    <div id="pck-txt"></div>
+
+    <div class="mt10" style="display: grid;grid-template-columns: 1fr 1fr;">
+      <div><input type="button" id="pck-no" value="Cancel"></div>
+      <div><input type="button" id="pck-ok" value="OK" style="align-self: end;"></div>
+    </div>
+  </div>
+
+  <div class="top">
+    <div id="title"><span class="mh">Shelly Plug </span>- Nord Pool Light</div>
+    <div id="spin" class="spn"></div>
+    <div id="copy">&copy; Jussi Isotalo (<a href="https://jisotalo.fi" target="_blank">jisotalo.fi</a>)</div>
+  </div>
+
+  <div id="content">
+    <table class="m cc">
+      <tr>
+        <td class="w180">Status</td>
+        <td id="s-st">Loading...</b>
+        </td>
+      </tr>
+      <tr>
+        <td>Active color</td>
+        <td id="s-c"></b>
+        </td>
+      </tr>
+      <tr>
+        <td>Price now</td>
+        <td id="s-now"></td>
+      </tr>
+      <tr>
+        <td>Device name</td>
+        <td id="s-dn"></td>
+      </tr>
+    </table>
+
+    <div class="tc b mt10">SETTINGS</div>
+
+
+    <table class="m cc">
+      <tr>
+        <td class="w180">Country</td>
+        <td>
+          <select id="g">
+            <option value="fi">Finland</option>
+            <option value="ee">Estonia</option>
+            <option value="lv">Latvia</option>
+            <option value="lt">Lithuania</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>VAT-%</td>
+        <td>
+          <input type="text" id="v" size="1 "> %
+        </td>
+      </tr>
+      <tr>
+        <td>Output on</td>
+        <td>
+          Brightness adjust: <input type="text" id="ob" size="1"> %
+        </td>
+      </tr>
+      <tr>
+        <td>Night settings</td>
+        <td>
+          
+          <table class="m sm cc" style="margin: auto;">
+            <tr>
+              <td>Night time</td>
+              <td><input type="text" id="ns" size="1">:00 - <input type="text" id="ne" size="1">:00</td>
+            </tr>
+            <tr>
+              <td>Brightness adjust</td>
+              <td><input type="text" id="nb" size="1"> %</td>
+            </tr>
+            <tr>
+              <td>Blink allowed</td>
+              <td><input type="checkbox" id="nf"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>Rules</td>
+        <td class="tc">
+          Click color to select<br>
+
+          <div style="width: 100%;max-width: 100%;overflow-x: auto;">
+            <table class="sm" style="margin: auto;margin-bottom: 10px;">
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>&ge; c/kWh</td>
+                  <td>Color</td>
+                  <td>Brightness</td>
+                  <td>Blink</td>
+                  <td>Test row</td>
+                </tr>
+              </thead>
+              <tbody id="cfg">
+
+              </tbody>
+            </table>
+          </div>
+          Blink might decrease device lifetime - use at your own risk
+        </td>
+      </tr>
+    </table>
+    <div class="tc mt10">
+      <input id="save" type="button" value="Save">
+    </div>
+
+    <div id="s-v" class="tc mt10"></div>
+  </div>
+  <script>
+    /* If true, development environment is active (http is served from localhost) */
+    const DEV = window.location.origin.includes("localhost");
+
+    /**
+     * Helper that adds a <script> tag with file f
+     */
+    let reqJs = (f) => {
+      let script = document.createElement("script");
+      script.src = DEV ? f : `?r=${f.replace("tab-", "")}`;
+      document.body.appendChild(script);
+    }
+
+    /*Loading script and css based on if we are running on shelly or dev environment*/
+    let css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = DEV ? "s.css" : "?r=s.css";
+    document.body.appendChild(css);
+
+    reqJs("s.js");
+  </script>
+</body>
+
+</html>

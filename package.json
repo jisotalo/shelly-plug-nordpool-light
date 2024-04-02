@@ -1,0 +1,23 @@
+{
+  "name": "shelly-plug-nordpool-light",
+  "version": "1.0.0",
+  "description": "This is used for building/minifying shelly-plug-nordpool-light",
+  "main": "shelly-builder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node shelly-builder.js --build shelly-plug-nordpool-light.js && npm run after-build",
+    "upload": "node shelly-builder.js --upload shelly-plug-nordpool-light.js",
+    "start": "npm run build && npm run upload",
+    "serve": "serve ./src/statics",
+    "debug": "node shelly-builder.js --debug",
+    "after-build": "node after-build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-minifier": "^4.0.0",
+    "serve": "^14.2.1",
+    "uglify-js": "^3.17.4"
+  }
+}
