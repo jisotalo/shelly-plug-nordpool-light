@@ -3,13 +3,13 @@
 [![GitHub](https://img.shields.io/badge/View%20on-GitHub-brightgreen)](https://github.com/jisotalo/shelly-plug-nordpool-light)
 [![Support](https://img.shields.io/badge/Support_with-PayPal-yellow)](https://www.paypal.com/donate/?business=KUWBXXCVGZZME&no_recurring=0&currency_code=EUR)
  
- Hieman yliampuva pörssisähkön hinnan mukaan valoa ohjaava skripti **Shelly Plus Plug S** -etäohjattavaan pistorasiaan. Skriptin konfiguroidaan selaimella toimivalla käyttöliittymällä kotiverkosta. Käyttää [Eleringin](https://dashboard.elering.ee/api) rajapintaa eikä vaadi rekisteröitymistä.
+Pörssisähkön hinnan mukaan valoa ohjaava skripti **Shelly Plus Plug S** -etäohjattavaan pistorasiaan. Skripti konfiguroidaan selaimella toimivalla käyttöliittymällä kotiverkosta. Käyttää [Eleringin](https://dashboard.elering.ee/api) rajapintaa eikä vaadi rekisteröitymistä. Tällä saat esimerkiksi "liikennevalot" näyttämään sähkön hintaa.
 
- **Huom:** Tämä skripti ei ohjaa pistorasialähtöä! Tämä skripti ainoastaan asettaa RGB-valon hinnan mukaan. Jos haluat ohjata pistorasiaa pörssisähkön hinnan mukaan, katso toinen projektini [shelly-porssisahko](https://github.com/jisotalo/shelly-porssisahko). Voit laittaa molemmat skriptit toimimaan samanaikaisesti.
+ **Huom:** Tämä skripti ei ohjaa pistorasialähtöä! Tämä ainoastaan asettaa RGB-valon hinnan mukaan. Jos haluat ohjata pistorasiaa pörssisähkön hinnan mukaan, katso toinen projektini [shelly-porssisahko](https://github.com/jisotalo/shelly-porssisahko). Voit laittaa molemmat skriptit toimimaan samanaikaisesti samassa laitteessa.
 
  ---
 
- An overkill script for **Shelly Plus Plug S** to control the RGB light based on active Nordpool electricity price. The prices are available for Finland, Estonia, Latvian and Lithuania. Settings can be adjusted using web-based UI in the local network. Uses [Elering](https://dashboard.elering.ee/api) API, so no registeration is needed.
+A script for **Shelly Plus Plug S** to control the RGB light based on active Nord Pool electricity price. The prices are available for Finland, Estonia, Latvian and Lithuania. Settings can be adjusted using web-based UI in the local network. Uses [Elering](https://dashboard.elering.ee/api) API, so no registeration is needed.
 
  **Note:** This script does not control the output - it only handles the RGB LED color. If you want to control the output based on electricity price, see my other project [shelly-porssisahko](https://github.com/jisotalo/shelly-porssisahko). You can run both scripts at the same time.
 
@@ -91,19 +91,21 @@
 
 ### Asetukset
 
+![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/4e775bbf-db22-45b3-ae79-7b252f218849)
+
 | Asetus | Selite | Esim. (kuva yllä)
 | --- | --- | ---
 | Country | Maa/alue, jolle hinta haetaan | `Finland`
 | VAT-% | Käytettävä ALV-% sähkön hinnalle. [%]| `24 %`
-| Output on | Paljonko kirkkautta muutetaan jos lähtö on päällä. [%]<br><br>Negativiinen arvo pienentää, positiivinen kasvattaa. | `20%`
+| Output on | Paljonko kirkkautta muutetaan jos lähtö on päällä. [%]<br><br>Negativiinen arvo pienentää, positiivinen kasvattaa. | `20 %`
 |&nbsp;
 | **Night settings** | **Asetukset yötä varten** 
 | Night time | Aikaväli, jolloin yöasetukset ovat käytössä. | `22:00-06:00`
 | Brightness adjust | Paljonko kirkkautta muutetaan<br><br>Negativiinen arvo pienentää, positiivinen kasvattaa. | `-5 %`
 | Blink allowed | Sallitaanko vilkutus yöaikaan | `ei`
 |&nbsp;
-| **Rules** | **Hinta- ja väriasetukset**
-| ≥ c/kWh	| Hintaraja, jonka yläpuolella ehto on aktiivinen. [c/kWh] | #1: `5 c/kWh`
+| **Rules** | **Sääntöjen hinta- ja väriasetukset**
+| ≥ c/kWh	| Hintaraja, jonka yläpuolella sääntö on aktiivinen. [c/kWh]<br><br>Jos hinnan jättää tyhjäksi, sääntö ei ole käytössä. | #1: `5 c/kWh`
 | Color | Käytettävä väri. Syötä arvo käsin tai paina laatikkoa avataksesi värivalinnan. | #1: `0, 255, 0 (vihreä)`
 | Brightness | Valon kirkkaus [%] | #1: `10 %`
 | Blink* | Vilkutetaanko valoa 2s välein? | #1: `ei`
@@ -115,9 +117,13 @@ Esimerkkikuvan asetuksilla säännöt toimivat seuraavasti:
 * Hinta < 5 c/kWh - väri on vihreä (sääntö #1)
 * Hinta 5...10 c/kWh - väri on keltainen (sääntö #2)
 * ...
-* Hinta > 25 c/kWh - väri on punainen (sääntö #6)
+* Hinta > 20 c/kWh - väri on punainen (sääntö #5)
 
 ### Kysymyksiä ja vastauksia
+
+**Miksi sääntöjä on vain kuusi kappaletta?**
+
+Shellyn KVS-muistiin mahtuu 256 tavua dataa. Enempää sääntöasetuksia ei  mahdu muistiin järkevästi.
 
 
 ## In English
