@@ -1,7 +1,7 @@
 [
   {
     "fname": "dist/shelly-plug-nordpool-light.js",
-    "title": "NordPool price controlled RGB light for Shelly Plus Plug S",
-    "description": "NordPool price controller RGB light for Shelly Plus Plug S. Github: https://github.com/jisotalo/shelly-plug-nordpool-light"
+    "title": "Nord Pool price controlled RGB-light for Shelly Plus Plug S",
+    "description": "Nord Pool electricity price controlled RGB-light for Shelly Plus Plug S. Github: https://github.com/jisotalo/shelly-plug-nordpool-light"
   }
 ]
