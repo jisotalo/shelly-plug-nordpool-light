@@ -13,21 +13,22 @@
 
  **Note:** This script does not control the output - it only handles the RGB LED color. If you want to control the output based on electricity price, see my other project [shelly-porssisahko](https://github.com/jisotalo/shelly-porssisahko). You can run both scripts at the same time.
 
+![shelly-plug-nordpool-light gif](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/d050b1e1-602f-4aea-a9d3-075426a03af0)x§
+
 ## Sisällysluettelo / Table of Contents
 <!-- TOC -->
 
-- [shelly-plug-nordpool-light](#shelly-plug-nordpool-light)
-  - [Sisällysluettelo / Table of Contents](#sis%C3%A4llysluettelo--table-of-contents)
-  - [Suomeksi](#suomeksi)
-    - [Ominaisuudet](#ominaisuudet)
-    - [Asennus](#asennus)
-    - [Asetukset](#asetukset)
-    - [Kysymyksiä ja vastauksia](#kysymyksi%C3%A4-ja-vastauksia)
-  - [In English](#in-english)
-    - [Installation](#installation)
-    - [Settings](#settings)
-    - [FAQ](#faq)
-  - [License](#license)
+- [Sisällysluettelo / Table of Contents](#sis%C3%A4llysluettelo--table-of-contents)
+- [Suomeksi](#suomeksi)
+  - [Ominaisuudet](#ominaisuudet)
+  - [Asennus](#asennus)
+  - [Asetukset](#asetukset)
+  - [Kysymyksiä ja vastauksia](#kysymyksi%C3%A4-ja-vastauksia)
+- [In English](#in-english)
+  - [Installation](#installation)
+  - [Settings](#settings)
+  - [FAQ](#faq)
+- [License](#license)
 
 <!-- /TOC -->
 
@@ -51,41 +52,39 @@
 **HUOMIO:** Skripti vaatii firmwaren 1.0.7 tai uudemman
 
 1. Ota Shelly käyttöön, yhdistä se wifi-verkkoon ja päivitä sen firmware. Avaa Shellyn hallinta **nettiselaimella**.
-
 2. Laita **Websocket debug** päälle (Settings -> Debug -> Enable websocket debug). Näin näet suoraan hallintapaneelin osoitteen skriptin alla.
-3. Avaa **Scripts**-sivu Shellyn hallinnasta. Poista olemassaolevat skriptit, jos niitä on.
+3. Avaa **Scripts**-sivu Shellyn hallinnasta
 4. Paina **Library**-painiketta
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/5fe7184e-f9ac-4fd4-b461-ad2239a96d95)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/97b58d24-a947-459c-b6e2-4a0c1f84a6bf)
 
 5. Aukeavassa ikkunassa paina **Configure URL**
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/ccd4b9fd-f9f2-4f42-8bc9-74c9486f6432)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/fa592dc8-d99c-45a6-80bd-55c2d7720572)
 
-6. Syötä osoitteeksi `https://raw.githubusercontent.com/jisotalo/shelly-porssisahko/master/shelly-library.json` ja paina **Save**
+6. Syötä osoitteeksi `https://raw.githubusercontent.com/jisotalo/shelly-plug-nordpool-light/master/shelly-library.json` ja paina **Save**
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/972fedb9-8503-4d90-a9b2-3af6f430ed7d)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/5618ff9a-cd5b-4218-a6d8-5d1f7f1dad54)
 
-7. Nyt kirjastoon ilmestyy pörssisähköohjaus. Asenna se painamalla **Import code**
+7. Nyt kirjastoon ilmestyy tämä skripti. Asenna se painamalla **Import code**
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/9139dad1-e3ec-4a09-9e39-d940af5ea9d7)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/0436e617-214a-4fe1-af3b-0d36e9205524)
 
 8. Kun skripti ilmestyy, paina **Save**
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/2a241033-4ccb-415e-b422-373ec7ce54ef)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/0505c7fe-14c1-494c-8604-9013e0fdf1ef)
 
 9. Tallentamisen jälkeen paina **Start**, jolloin skripti käynnistyy
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/8b30aa9f-b9de-44a7-9677-6872404b022d)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/18309201-8ceb-4e4e-b70d-9bcd08c4d6aa)
 
-10. Jos websocket debug on päällä (**kohta 2**), näet hallinnan osoitteen suoraan skriptin alla konsolissa. Kopioi tämä osoite ja avaa se selaimella. Jos et näe sitä niin osoite on muotoa `http://ip-osoite/script/1`
+10. Jos websocket debug on päällä (**kohta 2**), näet hallinnan osoitteen suoraan skriptin alla konsolissa. Kopioi tämä osoite ja avaa se selaimella. Jos et näe sitä niin osoite on muotoa `http://ip-osoite/script/1` (jos kyseessä on 1. skripti)
 
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/58e47d7e-d46e-42aa-ab22-deaef16d9104)
 
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/93b64aea-ec36-4ea4-88ff-e0a75146262b)
+11. Varmista vielä että skripti käynnistyy aina automaattisesti. Eli **Scripts**-sivulla pitää shelly-plug-nordpool-light.js -skriptin kohdalla olla valinta päällä.
 
-11. Varmista vielä että skripti käynnistyy aina automaattisesti. Eli **Scripts**-sivulla pitää shelly-porssisahko.js -skriptin kohdalla olla valinta päällä.
-
-    ![image](https://github.com/jisotalo/shelly-porssisahko/assets/13457157/2d9fbb5f-e2c5-4f5c-a457-5606825184f3)
+    ![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/a4ab558c-216b-4ff8-bde4-fcd54c79289b)
 
 12. Valmis! Avaa käyttöliittymä selaimessa (**kohta 10**) ja säädä asetukset kohdilleen [Asetukset](#asetukset)-kappaleen ohjeilla.
 
