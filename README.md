@@ -13,12 +13,13 @@ A script for **Shelly Plus Plug S** to control the RGB light based on active Nor
 
  **Note:** This script does not control the output - it only handles the RGB LED color. If you want to control the output based on electricity price, see my other project [shelly-porssisahko](https://github.com/jisotalo/shelly-porssisahko). You can run both scripts at the same time.
 
-![shelly-plug-nordpool-light gif](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/d050b1e1-602f-4aea-a9d3-075426a03af0)x§
+![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/91d06f54-9013-4537-902e-836484755594)
+
+![shelly-plug-nordpool-light gif](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/d050b1e1-602f-4aea-a9d3-075426a03af0)
 
 ## Sisällysluettelo / Table of Contents
 <!-- TOC -->
 
-- [Sisällysluettelo / Table of Contents](#sis%C3%A4llysluettelo--table-of-contents)
 - [Suomeksi](#suomeksi)
   - [Ominaisuudet](#ominaisuudet)
   - [Asennus](#asennus)
@@ -138,6 +139,8 @@ Shellyn KVS-muistiin mahtuu 256 tavua dataa. Enempää sääntöasetuksia ei  ma
 * Possible to adjust brighness when output is on
 
 *\* Using blink might cause device lifetime to decrease. Use only in error situation or in rare price condition. Use at your own risk.*
+
+### Features
 
 ### Installation
 
