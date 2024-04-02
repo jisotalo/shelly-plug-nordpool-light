@@ -27,13 +27,13 @@ let C_DEF = {
   /** night time from (hour) */
   ns: 22,
   /** night time until (hour) */
-  ne: 7,
+  ne: 6,
   /** night time brightness adjust (%)*/
-  nb: -10,
+  nb: -5,
   /** night time blink allowed */
   nf: 0,
   /** output on brightness adjust (%)*/
-  ob: 10,
+  ob: 20,
   /** 
    * Color configurations
    *  
@@ -44,12 +44,12 @@ let C_DEF = {
   c: [
     [null, 255, 255, 255, 0, 0],  //row #1 - base (no rule found)
     [null, 255, 0, 0, 50, 1],     //row #2 - error
-    [0, 0, 255, 0, 10, 0],        //row #3 - color 1
-    [5, 0, 255, 0, 10, 0],        //row #4 - color 2
-    [10, 255, 120, 0, 10, 0],     //row #5 - color 3
-    [15, 255, 64, 0, 10, 0],      //row #6 - color 4
-    [20, 255, 0, 0, 10, 0],       //row #7 - color 5
-    [null, 255, 255, 255, 100, 0],//row #8 - color 6
+    [-999, 0, 255, 0, 10, 0],     //row #3 - color 1 (green)
+    [5, 255,255, 0, 25, 0],       //row #4 - color 2 (yellow)
+    [10, 255, 120, 0, 15, 0],     //row #5 - color 3 (orange)
+    [15, 255, 64, 0, 25, 0],      //row #6 - color 4 (orange/red)
+    [20, 255, 0, 0, 10, 0],       //row #7 - color 5 (red)
+    [null, 255, 255, 255, 100, 0],//row #8 - color 6 (not configured)
   ]
 };
 

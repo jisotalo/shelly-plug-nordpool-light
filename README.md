@@ -31,6 +31,8 @@
 
 <!-- /TOC -->
 
+## Suomeksi
+
 ### Ominaisuudet
 
 * Ilmainen sekä avoin lähdekoodi
