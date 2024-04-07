@@ -92,21 +92,21 @@ A script for **Shelly Plus Plug S** to control the RGB light based on active Nor
 
 ### Asetukset
 
-![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/4e775bbf-db22-45b3-ae79-7b252f218849)
+![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/276af229-4567-4c84-a6a4-18e793610647)
 
 | Asetus | Selite | Esim. (kuva yllä)
 | --- | --- | ---
 | Country | Maa/alue, jolle hinta haetaan | `Finland`
 | VAT-% | Käytettävä ALV-% sähkön hinnalle. [%]| `24 %`
-| Output on | Paljonko kirkkautta muutetaan jos lähtö on päällä. [%]<br><br>Negativiinen arvo pienentää, positiivinen kasvattaa. | `20 %`
+| Output on | Paljonko kirkkautta muutetaan jos lähtö on päällä. [%]<br><br>100 % = alkuperäinen / ei muutosta | `150 %`
 |&nbsp;
 | **Night settings** | **Asetukset yötä varten** 
 | Night time | Aikaväli, jolloin yöasetukset ovat käytössä. | `22:00-06:00`
-| Brightness adjust | Paljonko kirkkautta muutetaan<br><br>Negativiinen arvo pienentää, positiivinen kasvattaa. | `-5 %`
+| Brightness adjust | Paljonko kirkkautta muutetaan<br><br>100 % = alkuperäinen / ei muutosta | `50 %`
 | Blink allowed | Sallitaanko vilkutus yöaikaan | `ei`
 |&nbsp;
 | **Rules** | **Sääntöjen hinta- ja väriasetukset**
-| ≥ c/kWh	| Hintaraja, jonka yläpuolella sääntö on aktiivinen. [c/kWh]<br><br>Jos hinnan jättää tyhjäksi, sääntö ei ole käytössä. | #1: `5 c/kWh`
+| ≥ c/kWh	| Hintaraja, jonka yläpuolella sääntö on aktiivinen. [c/kWh]<br><br>Jos hinnan jättää tyhjäksi, sääntö ei ole käytössä. | #1: `-999 c/kWh`
 | Color | Käytettävä väri. Syötä arvo käsin tai paina laatikkoa avataksesi värivalinnan. | #1: `0, 255, 0 (vihreä)`
 | Brightness | Valon kirkkaus [%] | #1: `10 %`
 | Blink* | Jos päällä, valoa vilkutetaan 2s välein | #1: `ei`
@@ -185,21 +185,21 @@ Shellyn KVS-muistiin mahtuu 256 tavua dataa. Enempää sääntöasetuksia ei  ma
 
 ### Settings
 
-![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/4e775bbf-db22-45b3-ae79-7b252f218849)
+![image](https://github.com/jisotalo/shelly-plug-nordpool-light/assets/13457157/276af229-4567-4c84-a6a4-18e793610647)
 
 | Setting | Description | Example (picture above)
 | --- | --- | ---
 | Country | Country/group to get the price for | `Finland`
 | VAT-% | VAT-% added to electricity price [%]| `24 %`
-| Output on | How much to adjust the brightness if output is on. [%]<br><br>Negative value decreases and positive increases. | `20 %`
+| Output on | How much to adjust the brightness if output is on. [%]<br><br>100% = original / no changes | `150 %`
 |&nbsp;
 | **Night settings**
 | Night time | Time period to use night settings for | `22:00-06:00`
-| Brightness adjust | How much to adjust brightness during night period<br><br>Negative value decreases and positive increases. | `-5 %`
+| Brightness adjust | How much to adjust brightness during night period<br><br>100% = original / no changes | `50 %`
 | Blink allowed | Is blink allowed during night time | `no`
 |&nbsp;
 | **Rules** | **Price and color settings for each rule**
-| ≥ c/kWh	| If price is over this limit, the rule is active. [c/kWh]<br><br>If empty, the rule is not in use. | #1: `5 c/kWh`
+| ≥ c/kWh	| If price is over this limit, the rule is active. [c/kWh]<br><br>If empty, the rule is not in use. | #1: `-999 c/kWh`
 | Color | Color to use. Enter it manually or press the rectangle to open a color picker. | #1: `0, 255, 0 (green)`
 | Brightness | Light brightness [%] | #1: `10 %`
 | Blink* | If true, the the light is blinking every 2s | #1: `no`

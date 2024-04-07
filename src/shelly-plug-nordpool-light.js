@@ -29,11 +29,11 @@ let C_DEF = {
   /** night time until (hour) */
   ne: 6,
   /** night time brightness adjust (%)*/
-  nb: -5,
+  nb: 50,
   /** night time blink allowed */
   nf: 0,
   /** output on brightness adjust (%)*/
-  ob: 20,
+  ob: 150,
   /** 
    * Color configurations
    *  
@@ -57,7 +57,7 @@ let C_DEF = {
 let _ = {
   s: {
     /** version number */
-    v: "1.0.0",
+    v: "1.1.0",
     /** Device name */
     dn: '',
     /** status as number */
@@ -326,7 +326,7 @@ function setPlugConfig(overrideBrightness, cb) {
 
     //If night time, adjust brightness
     if (now.getHours() >= _.c.ns || now.getHours() < _.c.ne) {
-      rgb.brightness = Math.min(Math.max(0, rgb.brightness + _.c.nb), 100);
+      rgb.brightness = Math.min(Math.max(0, rgb.brightness * (_.c.nb / 100.0)), 100);
     }
 
     //Creating object for PLUGS_UI config
@@ -345,7 +345,7 @@ function setPlugConfig(overrideBrightness, cb) {
     };
 
     //Set on brightness
-    prm.config.leds.colors["switch:0"].on.brightness = Math.min(100, Math.max(0, cfg[4] + _.c.ob));
+    prm.config.leds.colors["switch:0"].on.brightness = Math.min(100, Math.max(0, rgb.brightness * (_.c.ob / 100.0)));
 
     //blink in use?
     _.s.f = cfg[5];
