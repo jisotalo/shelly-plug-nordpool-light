@@ -23,7 +23,7 @@ let C_DEF = {
   /** Group (country) to get prices from */
   g: 'fi',
   /** VAT added to spot price (%) */
-  v: 24,
+  v: 25.5,
   /** night time from (hour) */
   ns: 22,
   /** night time until (hour) */
@@ -57,7 +57,7 @@ let C_DEF = {
 let _ = {
   s: {
     /** version number */
-    v: "1.1.0",
+    v: "1.2.0",
     /** Device name */
     dn: '',
     /** status as number */
@@ -261,6 +261,13 @@ function blinkLoop() {
 }
 
 /**
+ * Returns current quarter of the hour: 0, 1, 2, 3
+ */
+function getQuarter(dt) {
+  return Math.floor(dt.getMinutes() / 15.0);
+}
+
+/**
  * Returns true if we should run the logic now
  */
 function logicRunNeeded() {
@@ -290,11 +297,14 @@ function logicRunNeeded() {
 
   /*
     Logic should be run if
-    - hour has changed and it's not the first minute of the hour
+    - hour quarter (0, 15, 30, 45) has changed and 30s has passed (so small clock diff doesn't matter)
     - year has changed (= time has been received)
   */
-  return ((chk.getHours() !== now.getHours() && now.getMinutes > 0)
-    || chk.getFullYear() !== now.getFullYear());
+  if (getQuarter(chk) !== getQuarter(now)) {
+    return now.getSeconds() >= 30;
+  }
+
+  return chk.getFullYear() !== now.getFullYear();
 }
 
 /**

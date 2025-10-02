@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # Suomeksi
 
+## [1.2.0] - 02.10.2025
+- Päivitetty tukemaan 15 minuutin välein vaihtuvia hintoja
+- Päivitetty arvonlisäveron tehdasasetus 24% -> 25.5%
+
 ## [1.1.0] - 07.04.2024
 - Muutettu kirkkauden säätöä kun lähtö on päällä tai on yöaika
   - Aiemmin syötettiin prosenttiyksiköt
@@ -19,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ensimmäinen julkinen versio
 
 # In English
+
+## [1.2.0] - 02.10.2025
+- Updated to support spot prices with 15 minute interval
+- Updated default Finnish VAT
 
 ## [1.1.0] - 07.04.2024
 - Changed brightness adjust operation of output on and night time 
